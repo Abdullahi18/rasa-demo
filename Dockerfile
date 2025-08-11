@@ -1,23 +1,13 @@
-FROM python:3.10
+FROM python:3.8-slim
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y git
-
-# Install Rasa
-RUN pip install rasa
-
-# Copy your Rasa project and Flask app
 WORKDIR /app
-COPY . /app
 
-# Install Flask and requests
-RUN pip install flask requests
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Train the Rasa model
+COPY . .
+
 RUN rasa train
 
-# Expose ports
-EXPOSE 5005 8000
-
-# Start both Rasa and Flask (use a process manager)
-CMD rasa run --enable-api --cors "*" & python app.py
+EXPOSE 8000 5005
+CMD ["rasa", "run", "--enable-api", "--cors", "*", "--debug"]
