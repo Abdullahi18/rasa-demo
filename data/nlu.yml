@@ -1,0 +1,45 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hey
+    - good morning
+    - good evening
+    - hey there
+    - hello there
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - catch you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+
+- intent: reset_password
+  examples: |
+    - I forgot my password
+    - how do I reset my password?
+    - reset my password
+    - password reset
+
+- intent: ask_account_info
+  examples: |
+    - show my account info
+    - what is my account status?
+    - account details
