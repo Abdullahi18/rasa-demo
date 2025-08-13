@@ -11,7 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Download the model from Google Drive
-RUN wget -O /app/models/latest.tar.gz "https://drive.google.com/uc?id=1C7rm_gbkvdUDOf_6Ww-glm9UkYiW-IZP"
+RUN wget -O /app/models/latest.tar.gz "https://drive.google.com/uc?id=1bwgzKi6c0VYXaEAxwyiq7F44sNFkTwXy"
+
 
 EXPOSE 8000 5005
 CMD ["rasa", "run", "--enable-api", "--cors", "*", "--debug"]
